@@ -20,14 +20,14 @@
                   <p class="header__subtitle">Shelter for pets in Boston</p>
                </a>
             </div>
-            <div class="header__navigation">
+            <nav class="header__navigation">
                <ul class="navigation">
                   <li class="navigation__item"><a class="navigation__link" href="#header">About the shelter</a></li>
                   <li class="navigation__item"><a class="navigation__link" href="pages/pets.html">Our pets</a></li>
                   <li class="navigation__item"><a class="navigation__link" href="#help">Help the shelter</a></li>
                   <li class="navigation__item"><a class="navigation__link" href="#footer">Contacts</a></li>
                </ul>
-            </div>
+            </nav>
             <div class="burger">
                <div class="burger__line"></div>
             </div>
@@ -67,6 +67,24 @@
             </div>
          </section>
          <section class="pets" id="pets">
+            <div class="popup">
+               <div class="popup__overlay"></div>
+               <div class="popup__window">
+                  <img class="popup__img" src="" alt="Pet">
+                  <div class="popup__text-content">
+                     <h3 class="popup__title"></h3>
+                     <h4 class="popup__subtitle"></h4>
+                     <p class="popup__description"></p>
+                     <ul class="popup__feature">
+                        <li class="popup__age"></li>
+                        <li class="popup__inoculations"></li>
+                        <li class="popup__diseases"></li>
+                        <li class="popup__parasites"></li>
+                     </ul>
+                  </div>
+                  <div class="popup__close"></div>
+               </div>
+            </div>
             <div class="container">
                <h3 class="pets__title title">
                   Our friends who <br>
@@ -76,21 +94,59 @@
                   <div class="slider__left">
                      <img class="slider__arrow" src="assets/icons/Arrow-left.svg" alt="Arrow">
                   </div>
-                  <div class="slider__content">
-                     <div class="pet-card">
-                        <img class="pet-card__img" src="assets/images/pets-katrine.png" alt="Katrine">
-                        <span class="pet-card__subtitle">Katrine</span>
-                        <a class="pet-card__button button-wihtout-bg" href="#">Learn more</a>
-                     </div>
-                     <div class="pet-card">
-                        <img class="pet-card__img" src="assets/images/pets-jennifer.png" alt="Jennifer">
-                        <span class="pet-card__subtitle">Jennifer</span>
-                        <a class="pet-card__button button-wihtout-bg" href="#">Learn more</a>
-                     </div>
-                     <div class="pet-card">
-                        <img class="pet-card__img" src="assets/images/pets-woody.png" alt="Woody">
-                        <span class="pet-card__subtitle">Woody</span>
-                        <a class="pet-card__button button-wihtout-bg" href="#">Learn more</a>
+                  <div class="slider__wrapper">
+                     <div class="slider__content">
+                        <div class="slider__group" id="leftGroup">
+                           <div class="pet-card">
+                              <img class="pet-card__img" src="../assets/images/sophia.png" alt="Sophia">
+                              <span class="pet-card__subtitle">Sophia</span>
+                              <button class="pet-card__button button-wihtout-bg">Learn more</button>
+                           </div>
+                           <div class="pet-card">
+                              <img class="pet-card__img" src="../assets/images/timmy.png" alt="Timmy">
+                              <span class="pet-card__subtitle">Timmy</span>
+                              <button class="pet-card__button button-wihtout-bg">Learn more</button>
+                           </div>
+                           <div class="pet-card">
+                              <img class="pet-card__img" src="../assets/images/charly.png" alt="Charly">
+                              <span class="pet-card__subtitle">Charly</span>
+                              <button class="pet-card__button button-wihtout-bg">Learn more</button>
+                           </div>
+                        </div>
+                        <div class="slider__group" id="centerGroup">
+                           <div class="pet-card">
+                              <img class="pet-card__img" src="assets/images/katrine.png" alt="Katrine">
+                              <span class="pet-card__subtitle">Katrine</span>
+                              <button class="pet-card__button button-wihtout-bg">Learn more</button>
+                           </div>
+                           <div class="pet-card">
+                              <img class="pet-card__img" src="assets/images/jennifer.png" alt="Jennifer">
+                              <span class="pet-card__subtitle">Jennifer</span>
+                              <button class="pet-card__button button-wihtout-bg">Learn more</button>
+                           </div>
+                           <div class="pet-card">
+                              <img class="pet-card__img" src="assets/images/woody.png" alt="Woody">
+                              <span class="pet-card__subtitle">Woody</span>
+                              <button class="pet-card__button button-wihtout-bg">Learn more</button>
+                           </div>
+                        </div>
+                        <div class="slider__group" id="rightGroup">
+                           <div class="pet-card">
+                              <img class="pet-card__img" src="../assets/images/scarlett.png" alt="Scarlett">
+                              <span class="pet-card__subtitle">Scarlett</span>
+                              <button class="pet-card__button button-wihtout-bg">Learn more</button>
+                           </div>
+                           <div class="pet-card">
+                              <img class="pet-card__img" src="../assets/images/freddie.png" alt="Freddie">
+                              <span class="pet-card__subtitle">Freddie</span>
+                              <button class="pet-card__button button-wihtout-bg">Learn more</button>
+                           </div>
+                           <div class="pet-card">
+                              <img class="pet-card__img" src="../assets/images/sophia.png" alt="Sophia">
+                              <span class="pet-card__subtitle">Sophia</span>
+                              <button class="pet-card__button button-wihtout-bg">Learn more</button>
+                           </div>
+                        </div>
                      </div>
                   </div>
                   <div class="slider__right">
@@ -183,6 +239,9 @@
          </div>
       </footer>
    </div>
+   <script src="js/pets_data.js"></script>
+   <script src="js/index.js"></script>
+   <script src="js/slider.js"></script>
 </body>
 
 </html>
