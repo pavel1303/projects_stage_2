@@ -2,7 +2,9 @@
 @import 'base/__normalize';
 @import 'base/_container';
 @import 'base/_body';
-@import 'base/_header';
+
+@import 'components/header/_header';
+@import 'components/header/__container/_header__container';
 
 @import 'components/cart/_cart';
 @import 'components/cart/__count/_cart__count';
