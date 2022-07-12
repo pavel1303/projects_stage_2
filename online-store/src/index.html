@@ -8,13 +8,15 @@
 </head>
 <body class="body">
     <header class="header">
-        <div class="logo">
-            <img class="logo__img" src="./assets/images/logo.png" alt="Logo">
-            <h1 class="logo__title">Mobile</h1>
-        </div>
-        <div class="cart">
-            <img class="cart__img" src="./assets/images/cart.png" alt="Salle 5% image">
-            <span class="cart__count">0</span>
+        <div class="container">
+            <div class="logo">
+                <img class="logo__img" src="./assets/images/logo.png" alt="Logo">
+                <h1 class="logo__title">Mobile</h1>
+            </div>
+            <div class="cart">
+                <img class="cart__img" src="./assets/images/cart.png" alt="Salle 5% image">
+                <span class="cart__count">0</span>
+            </div>
         </div>
     </header>
     <main class="content">
@@ -23,41 +25,43 @@
             <input type="text" placeholder="Введите название телефона" id="product-search">
         </section>
         <section class="showcase">
-            <div class="showcase__filters">
-                <h2 class="showcase__title">Фильтры</h2>
-                <div class="showcase__filter-item" id="company-filter">
-                    <h3 class="showcase__filters-category">Производитель</>
+            <div class="container">
+                <div class="showcase__filters">
+                    <h2 class="showcase__title">Фильтры</h2>
+                    <div class="showcase__filter-item" id="company-filter">
+                        <h3 class="showcase__filters-category">Производитель</>
+                    </div>
+                    <div class="showcase__filter-item" id="color-filter">
+                        <h3 class="showcase__filters-category">Цвет</h3>
+                    </div>
+                    <div class="showcase__filter-item" id="size-filter">
+                        <h3 class="showcase__filters-category">Размер</>
+                    </div>
+                    <div class="showcase__filter-item" id="popularity-filter">
+                        <h3 class="showcase__filters-category">Популярность</h3>
+                        <label for="best-seles"> 
+                            <span>ХИТ ПРОДАЖ</span><input type="checkbox" id="best-seles">
+                        </label>
+                    </div>
+                    <div class="showcase__filter-item" id="year-filter">
+                        <h3 class="showcase__filters-category">Год выпуска</h3>
+                        
+                    </div>
+                    <div class="showcase__filter-item" id="count-filter">
+                        <h3 class="showcase__filters-category">Количество на складе</h3>
+                        
+                    </div>
                 </div>
-                <div class="showcase__filter-item" id="color-filter">
-                    <h3 class="showcase__filters-category">Цвет</h3>
-                </div>
-                <div class="showcase__filter-item" id="size-filter">
-                    <h3 class="showcase__filters-category">Размер</>
-                </div>
-                <div class="showcase__filter-item" id="popularity-filter">
-                    <h3 class="showcase__filters-category">Популярность</h3>
-                    <label for="best-seles"> 
-                        <span>ХИТ ПРОДАЖ</span><input type="checkbox" id="best-seles">
-                    </label>
-                </div>
-                <div class="showcase__filter-item" id="year-filter">
-                    <h3 class="showcase__filters-category">Год выпуска</h3>
-                    
-                </div>
-                <div class="showcase__filter-item" id="count-filter">
-                    <h3 class="showcase__filters-category">Количество на складе</h3>
-                    
-                </div>
-            </div>
-            <div class="showcase__products">
-                <div class="showcase__sort">
-                    <select name="showcase-sort" id="showcase-sort">
-                        <option value="year-sort">Сортировать по году выпуска</option>
-                        <option value="name-sort">Сортировать по названию</option>
-                    </select>
-                </div>
-                <div class="showcase__products-container">
-                    
+                <div class="showcase__products">
+                    <div class="showcase__sort">
+                        <select name="showcase-sort" id="showcase-sort">
+                            <option value="year-sort">Сортировать по году выпуска</option>
+                            <option value="name-sort">Сортировать по названию</option>
+                        </select>
+                    </div>
+                    <div class="showcase__products-container">
+                        
+                    </div>
                 </div>
             </div>
         </section>
