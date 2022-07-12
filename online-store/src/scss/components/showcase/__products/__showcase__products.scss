@@ -1,4 +1,8 @@
 .showcase__products {
     width: 80%;
     padding: 30px;
+    @media screen and (max-width: 1092px) {
+        width: 70%;
+        padding: 30px 30px 30px 10px;
+    }
 }
