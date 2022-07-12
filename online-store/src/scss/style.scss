@@ -1,3 +1,30 @@
 @import 'base/__fonts';
 @import 'base/__normalize';
 @import 'base/_container';
+@import 'base/_body';
+@import 'base/_header';
+
+@import 'components/cart/_cart';
+@import 'components/cart/__count/_cart__count';
+@import 'components/cart/__img/_cart__img';
+
+@import 'components/content/_content';
+
+@import 'components/footer/_footer';
+@import 'components/footer/__img/_footer__img';
+@import 'components/footer/__text/_footer__text';
+
+@import 'components/logo/_logo';
+@import 'components/logo/__img/_logo__img';
+@import 'components/logo/__title/';
+
+@import 'components/search/_search';
+
+@import 'components/showcase/_showcase';
+@import 'components/showcase/__filter-item/_showcase__filter-item';
+@import 'components/showcase/__filters-category/_showcase__filters-category';
+@import 'components/showcase/__filters/_showcase__filters';
+@import 'components/showcase/__products-container/_showcase__products-container';
+@import 'components/showcase/__products/_showcase__products';
+@import 'components/showcase/__sort/_showcase__sort';
+@import 'components/showcase/__title/_showcase__title';
