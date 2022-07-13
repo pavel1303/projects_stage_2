@@ -16,7 +16,7 @@ export class Card {
         prodImg.src = img;
         prodImg.alt = name;
         prodDescription.textContent = `${name}, ${memory}GB, ${color}, ${releaseYear}`;
-        prodPrice.textContent = `Цена: ${price}`;
+        prodPrice.textContent = `Цена: ${price} ₽`;
         prodAmount.textContent = `Остаток на складе: ${amount}`;
         prodItem.dataset.name = name;
         prodItem.dataset.producer = producer;
@@ -29,9 +29,9 @@ export class Card {
         if (popularity) {
             const imgHit: HTMLImageElement = document.createElement('img');
             imgHit.className = 'prod-item__hit-img';
-            imgHit.src = './assets/images/hit.png';
+            imgHit.src = require('../assets/images/hit.png');
             imgHit.alt = 'HIT';
-            cloneProdItem.append(imgHit);
+            prodItem.append(imgHit);
         }
 
         return cloneProdItem;
