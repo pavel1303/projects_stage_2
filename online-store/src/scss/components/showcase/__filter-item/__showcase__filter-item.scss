@@ -1,3 +1,15 @@
 .showcase__filter-item {
-    
+    &:nth-of-type(5) {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    &:nth-of-type(6) {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .noUi-connect{
+        background-color: rgb(222,12,23);
+    }
 }

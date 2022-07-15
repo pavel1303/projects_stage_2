@@ -1,0 +1,15 @@
+.range-filter__inp {
+    width: 70%;
+    border: none;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &[type=number]{
+        -moz-appearance: textfield;
+    }
+    &:focus {
+        outline: none;
+    }
+}
