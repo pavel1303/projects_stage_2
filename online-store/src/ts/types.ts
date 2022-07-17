@@ -1,4 +1,5 @@
 export interface StoreItem {
+    [key: string]: string | number | boolean;
     name: string;
     producer: string;
     releaseYear: number;
@@ -13,3 +14,25 @@ export interface StoreItem {
 export interface StoreData {
     items: StoreItem[];
 }
+
+// export type Properties =
+//     | 'color'
+//     | 'producer'
+//     | 'memory'
+//     | 'releaseYear'
+//     | 'popularity'
+//     | 'name'
+//     | 'amount'
+//     | 'img'
+//     | 'price';
+// export type StateItem = { [key: string]: boolean };
+
+export type ChosenFilters = {
+    [key: string]: string[];
+    producer: string[];
+    color: string[];
+    memory: string[];
+    releaseYear: string[];
+    amount: string[];
+    popularity: string[];
+};

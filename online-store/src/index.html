@@ -28,22 +28,22 @@
             <div class="showcasse__container container">
                 <div class="showcase__filters">
                     <h2 class="showcase__title">Фильтры</h2>
-                    <div class="showcase__filter-item" id="company-filter">
+                    <div class="showcase__filter-item" id="company-filter" data-filterName="producer">
                         <h3 class="showcase__filters-category">Производитель</h3>
                     </div>
-                    <div class="showcase__filter-item" id="color-filter">
+                    <div class="showcase__filter-item" id="color-filter" data-filterName="color">
                         <h3 class="showcase__filters-category">Цвет</h3>
                     </div>
-                    <div class="showcase__filter-item" id="size-filter">
+                    <div class="showcase__filter-item" id="size-filter" data-filterName="memory">
                         <h3 class="showcase__filters-category">Размер</h3>
                     </div>
-                    <div class="showcase__filter-item" id="popularity-filter">
+                    <div class="showcase__filter-item" id="popularity-filter" data-filterName="popularity">
                         <h3 class="showcase__filters-category">Популярность</h3>
                         <label for="best-seles">
                             <span>ХИТ ПРОДАЖ</span><input type="checkbox" id="best-seles">
                         </label>
                     </div>
-                    <div class="showcase__filter-item" id="year-filter">
+                    <div class="showcase__filter-item" id="year-filter" data-filterName="releaseYear">
                         <h3 class="showcase__filters-category">Год выпуска</h3>
                         <div class="slider" id="year-filter-slider"></div>
                         <label class="range-filter">
@@ -55,7 +55,7 @@
                             <input class="range-filter__inp" type="number" placeholder="" min="" max="" id="year-input-2">
                         </label>
                     </div>
-                    <div class="showcase__filter-item" id="amount-filter">
+                    <div class="showcase__filter-item" id="amount-filter" data-filterName="amount">
                         <h3 class="showcase__filters-category">Количество на складе</h3>
                         <div class="slider" id="amount-filter-slider"></div>
                         <label class="range-filter">

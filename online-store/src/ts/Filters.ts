@@ -1,13 +1,15 @@
 import { storeData } from './data';
 import { StoreData, StoreItem } from './types';
 import * as noUiSlider from 'nouislider';
+import { App } from './App';
 
 export class Filters {
+    app = new App();
     public data: StoreData;
     constructor() {
         this.data = storeData;
     }
-    private parseData(): Array<number[] | string[]> {
+    public parseData(): Array<number[] | string[]> {
         const producers: string[] = [];
         const releaseYears: number[] = [];
         const memory: number[] = [];
@@ -67,43 +69,46 @@ export class Filters {
             const label: HTMLLabelElement = document.createElement('label') as HTMLLabelElement;
             const input: HTMLInputElement = document.createElement('input') as HTMLInputElement;
 
-            label.htmlFor = `${item}`;
+            label.htmlFor = `${item}`.toLowerCase();
             label.textContent = `${item}`;
-            input.id = `${item}`;
+            input.id = `${item}`.toLowerCase();
             input.value = `${item}`;
             input.type = 'checkbox';
 
             filterItem.append(label, input);
             producerContainer.append(filterItem);
         });
+
         colors.forEach((item) => {
             const filterItem: HTMLDivElement = document.createElement('div') as HTMLDivElement;
             const label: HTMLLabelElement = document.createElement('label') as HTMLLabelElement;
             const input: HTMLInputElement = document.createElement('input') as HTMLInputElement;
 
-            label.htmlFor = `${item}`;
+            label.htmlFor = `${item}`.toLowerCase();
             label.textContent = `${item}`;
-            input.id = `${item}`;
+            input.id = `${item}`.toLowerCase();
             input.value = `${item}`;
             input.type = 'checkbox';
 
             filterItem.append(label, input);
             colorsContainer.append(filterItem);
         });
+
         memory.forEach((item) => {
             const filterItem: HTMLDivElement = document.createElement('div') as HTMLDivElement;
             const label: HTMLLabelElement = document.createElement('label') as HTMLLabelElement;
             const input: HTMLInputElement = document.createElement('input') as HTMLInputElement;
 
-            label.htmlFor = `${item}`;
+            label.htmlFor = `gb${item}`.toLowerCase();
             label.textContent = `${item}`;
-            input.id = `${item}`;
+            input.id = `gb${item}`.toLowerCase();
             input.value = `${item}`;
             input.type = 'checkbox';
 
             filterItem.append(label, input);
             memoryContainer.append(filterItem);
         });
+
         const rangeSliderYear: noUiSlider.target = document.querySelector('#year-filter-slider') as noUiSlider.target;
         if (rangeSliderYear) {
             noUiSlider.create(rangeSliderYear, {
@@ -121,9 +126,6 @@ export class Filters {
             rangeSliderYear.noUiSlider?.on('update', (values) => {
                 input1.value = `${Number(values[0]).toFixed(0)}`;
                 input2.value = `${Number(values[1]).toFixed(0)}`;
-                input1.addEventListener('input', () => {
-                    values[0] = input1.value;
-                });
             });
             const setRangeSliderYear = (i: number, value: string): void => {
                 const arr: string[] = [input1.value, input2.value];
@@ -138,6 +140,7 @@ export class Filters {
                 });
             });
         }
+
         const rangeSliderAmounts: noUiSlider.target = document.querySelector(
             '#amount-filter-slider'
         ) as noUiSlider.target;
@@ -157,11 +160,8 @@ export class Filters {
             rangeSliderAmounts.noUiSlider?.on('update', (values) => {
                 input1.value = `${Number(values[0]).toFixed(0)}`;
                 input2.value = `${Number(values[1]).toFixed(0)}`;
-                input1.addEventListener('input', () => {
-                    values[0] = input1.value;
-                });
             });
-            const setRangeSliderYear = (i: number, value: string): void => {
+            const setRangeSliderAmount = (i: number, value: string): void => {
                 const arr: string[] = [input1.value, input2.value];
                 arr[i] = value;
 
@@ -170,9 +170,10 @@ export class Filters {
             inputs.forEach((el, idx) => {
                 el.addEventListener('change', (e) => {
                     const target: HTMLInputElement = e.currentTarget as HTMLInputElement;
-                    setRangeSliderYear(idx, target.value);
+                    setRangeSliderAmount(idx, target.value);
                 });
             });
         }
+        this.app.drawCheckedFilters();
     }
 }
