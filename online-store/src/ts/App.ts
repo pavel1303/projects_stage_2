@@ -72,5 +72,6 @@ export class App {
                 }
             });
         }
+        this.card.addClassToProdInCart();
     }
 }

@@ -1,14 +1,17 @@
 import './scss/style.scss';
 import { App } from './ts/App';
+import { Card } from './ts/Card';
 import { storeData } from './ts/data';
 import { Filters } from './ts/Filters';
-
+const card = new Card();
 const app = new App();
 app.start(storeData);
 
 const filters = new Filters();
 filters.drawFilters();
 const filtersContainer: HTMLElement = document.querySelector('.showcase__filters') as HTMLElement;
+const prodContainer: HTMLDivElement = document.querySelector('.showcase__products-container') as HTMLDivElement;
+
 filtersContainer.addEventListener('change', (e: Event) => {
     const targetNode: Node = e.target as Node;
     const parentContainerDataSet = targetNode.parentElement?.parentElement?.dataset.filtername;
@@ -66,8 +69,52 @@ filtersContainer.addEventListener('change', (e: Event) => {
             }
     }
 
-    const prodContainer: HTMLDivElement = document.querySelector('.showcase__products-container') as HTMLDivElement;
     prodContainer.innerHTML = '';
     localStorage.setItem('chosenFilters', JSON.stringify(app.chosenFilters));
     app.start(storeData);
+    card.addClassToProdInCart();
 });
+
+const resetBtn: HTMLElement = document.querySelector('.showcase__reset-btn') as HTMLElement;
+resetBtn.addEventListener('click', () => {
+    localStorage.removeItem('chosenFilters');
+    location.reload();
+});
+
+prodContainer.addEventListener('click', (e) => {
+    let target: HTMLElement = e.target as HTMLElement;
+    const currentTarget: HTMLElement = e.currentTarget as HTMLElement;
+
+    while (target != currentTarget) {
+        const cartCount: HTMLElement = document.querySelector('.cart__count') as HTMLElement;
+        if (target.classList.contains('prod-item') && !target.classList.contains('prod-item--in-cart')) {
+            target.classList.add('prod-item--in-cart');
+            if (Number(cartCount.textContent) < 20) {
+                const prodInCart: { items: string[] } =
+                    localStorage.getItem('prodInCart') !== null
+                        ? JSON.parse(localStorage.getItem('prodInCart') as string)
+                        : { items: [] };
+                const prodId: string = target.dataset.id?.toString() as string;
+                prodInCart.items.push(prodId);
+                localStorage.setItem('prodInCart', JSON.stringify(prodInCart));
+                cartCount.textContent = (Number(cartCount.textContent) + 1).toString();
+            } else {
+                alert('Корзина переполнена');
+            }
+        } else if (target.classList.contains('prod-item') && target.classList.contains('prod-item--in-cart')) {
+            cartCount.textContent = (Number(cartCount.textContent) - 1).toString();
+            target.classList.remove('prod-item--in-cart');
+            const prodInCart: { items: string[] } =
+                localStorage.getItem('prodInCart') !== null
+                    ? JSON.parse(localStorage.getItem('prodInCart') as string)
+                    : { items: [] };
+            prodInCart.items = prodInCart.items.filter((el) => {
+                return target.dataset.id?.toString() !== el.toString();
+            });
+            localStorage.setItem('prodInCart', JSON.stringify(prodInCart));
+        }
+        target = target.parentElement as HTMLElement;
+    }
+});
+
+document.addEventListener('DOMContentLoaded', card.addClassToProdInCart);

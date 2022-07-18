@@ -1,5 +1,6 @@
 export interface StoreItem {
     [key: string]: string | number | boolean;
+    id: number;
     name: string;
     producer: string;
     releaseYear: number;

@@ -3,6 +3,7 @@ import { StoreData } from './types';
 export const storeData: StoreData = {
     items: [
         {
+            id: 0,
             name: 'Apple iPhone SE',
             producer: 'Apple',
             releaseYear: 2020,
@@ -14,6 +15,7 @@ export const storeData: StoreData = {
             price: 50000,
         },
         {
+            id: 1,
             name: 'Xiaomi 11T Pro',
             producer: 'Xiaomi',
             releaseYear: 2021,
@@ -25,6 +27,7 @@ export const storeData: StoreData = {
             price: 45000,
         },
         {
+            id: 2,
             name: 'Xiaomi 11T Pro',
             producer: 'Xiaomi',
             releaseYear: 2021,
@@ -36,6 +39,7 @@ export const storeData: StoreData = {
             price: 46000,
         },
         {
+            id: 3,
             name: 'Xiaomi 11T Pro',
             producer: 'Xiaomi',
             releaseYear: 2021,
@@ -47,6 +51,7 @@ export const storeData: StoreData = {
             price: 43000,
         },
         {
+            id: 4,
             name: 'Apple iPhone SE',
             producer: 'Apple',
             releaseYear: 2022,
@@ -58,6 +63,7 @@ export const storeData: StoreData = {
             price: 50000,
         },
         {
+            id: 5,
             name: 'Apple iPhone SE',
             producer: 'Apple',
             releaseYear: 2022,
@@ -69,6 +75,7 @@ export const storeData: StoreData = {
             price: 50000,
         },
         {
+            id: 6,
             name: 'Honor 50',
             producer: 'Honor',
             releaseYear: 2021,
@@ -80,6 +87,7 @@ export const storeData: StoreData = {
             price: 56000,
         },
         {
+            id: 7,
             name: 'Honor 50',
             producer: 'Honor',
             releaseYear: 2021,
@@ -91,6 +99,7 @@ export const storeData: StoreData = {
             price: 54000,
         },
         {
+            id: 8,
             name: 'Apple iPhone 11',
             producer: 'Apple',
             releaseYear: 2019,
@@ -102,6 +111,7 @@ export const storeData: StoreData = {
             price: 65000,
         },
         {
+            id: 9,
             name: 'Apple iPhone 11',
             producer: 'Apple',
             releaseYear: 2019,
@@ -113,6 +123,7 @@ export const storeData: StoreData = {
             price: 64000,
         },
         {
+            id: 10,
             name: 'Apple iPhone 11',
             producer: 'Apple',
             releaseYear: 2018,
@@ -124,6 +135,7 @@ export const storeData: StoreData = {
             price: 71000,
         },
         {
+            id: 11,
             name: 'Apple iPhone 11',
             producer: 'Apple',
             releaseYear: 2019,
@@ -135,6 +147,7 @@ export const storeData: StoreData = {
             price: 51000,
         },
         {
+            id: 12,
             name: 'Apple iPhone 12 Mini',
             producer: 'Apple',
             releaseYear: 2021,
@@ -146,6 +159,7 @@ export const storeData: StoreData = {
             price: 55000,
         },
         {
+            id: 13,
             name: 'Apple iPhone Xs Max',
             producer: 'Apple',
             releaseYear: 2022,
@@ -157,6 +171,7 @@ export const storeData: StoreData = {
             price: 80000,
         },
         {
+            id: 14,
             name: 'Xiaomi 12X',
             producer: 'Xiaomi',
             releaseYear: 2017,
@@ -168,6 +183,7 @@ export const storeData: StoreData = {
             price: 54000,
         },
         {
+            id: 15,
             name: 'Xiaomi 12X',
             producer: 'Xiaomi',
             releaseYear: 2018,
@@ -179,6 +195,7 @@ export const storeData: StoreData = {
             price: 56000,
         },
         {
+            id: 16,
             name: 'Apple iPhone 12',
             producer: 'Apple',
             releaseYear: 2022,
@@ -190,6 +207,7 @@ export const storeData: StoreData = {
             price: 61000,
         },
         {
+            id: 17,
             name: 'Apple iPhone 12',
             producer: 'Apple',
             releaseYear: 2022,
@@ -201,6 +219,7 @@ export const storeData: StoreData = {
             price: 69000,
         },
         {
+            id: 18,
             name: 'Apple iPhone 13',
             producer: 'Apple',
             releaseYear: 2022,
@@ -212,6 +231,7 @@ export const storeData: StoreData = {
             price: 83000,
         },
         {
+            id: 19,
             name: 'Apple iPhone 13',
             producer: 'Apple',
             releaseYear: 2022,
@@ -223,6 +243,7 @@ export const storeData: StoreData = {
             price: 83000,
         },
         {
+            id: 20,
             name: 'Apple iPhone 13 mini',
             producer: 'Apple',
             releaseYear: 2022,
@@ -234,6 +255,7 @@ export const storeData: StoreData = {
             price: 92000,
         },
         {
+            id: 21,
             name: 'Apple iPhone 11 Pro Max',
             producer: 'Apple',
             releaseYear: 2022,
@@ -245,6 +267,7 @@ export const storeData: StoreData = {
             price: 98000,
         },
         {
+            id: 22,
             name: 'Xiaomi 12 Pro',
             producer: 'Xiaomi',
             releaseYear: 2021,
@@ -256,6 +279,7 @@ export const storeData: StoreData = {
             price: 115000,
         },
         {
+            id: 23,
             name: 'Apple iPhone 13 Pro Max',
             producer: 'Apple',
             releaseYear: 2022,
@@ -267,6 +291,7 @@ export const storeData: StoreData = {
             price: 138000,
         },
         {
+            id: 24,
             name: 'Xiaomi 12',
             producer: 'Xiaomi',
             releaseYear: 2020,
@@ -278,6 +303,7 @@ export const storeData: StoreData = {
             price: 69000,
         },
         {
+            id: 25,
             name: 'Apple iPhone 12',
             producer: 'Apple',
             releaseYear: 2021,
@@ -289,6 +315,7 @@ export const storeData: StoreData = {
             price: 91000,
         },
         {
+            id: 26,
             name: 'Apple iPhone 13',
             producer: 'Apple',
             releaseYear: 2022,
@@ -300,6 +327,7 @@ export const storeData: StoreData = {
             price: 82000,
         },
         {
+            id: 27,
             name: 'Apple iPhone 12',
             producer: 'Apple',
             releaseYear: 2021,
@@ -311,6 +339,7 @@ export const storeData: StoreData = {
             price: 69000,
         },
         {
+            id: 28,
             name: 'Xiaomi 12X',
             producer: 'Xiaomi',
             releaseYear: 2017,
@@ -322,6 +351,7 @@ export const storeData: StoreData = {
             price: 53000,
         },
         {
+            id: 29,
             name: 'Apple iPhone 11',
             producer: 'Apple',
             releaseYear: 2019,
@@ -333,6 +363,7 @@ export const storeData: StoreData = {
             price: 50000,
         },
         {
+            id: 30,
             name: 'Honor 50',
             producer: 'Honor',
             releaseYear: 2016,
