@@ -31,10 +31,22 @@ export interface GarageState {
   inputColor: string;
   page: number;
 }
+export interface WinnersState {
+  page: number;
+}
 
 export interface GetCarsResponse {
   cars: Car[];
   count: string;
 }
+export interface GetWinnersCarsResponse {
+  carsWins: CarWinner[];
+  count: string;
+}
 
 export type TypeForGarageRender = GetCarsResponse | void;
+export type TypeForWinnersRender = GetWinnersCarsResponse | void;
+export interface WinnersRender {
+  cars: TypeForGarageRender;
+  winners: TypeForWinnersRender;
+}
