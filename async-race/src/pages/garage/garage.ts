@@ -7,6 +7,7 @@ import { Title } from '../../components/title/title';
 import { Button } from '../../components/btn/button';
 import { Input } from '../../components/input/input';
 import { CarGarage } from '../../components/car/car__garage/car_garage';
+import { Pangination } from '../../components/pangination/pangination';
 export class Garage extends CarGarage {
   state: GarageState =
     localStorage.getItem('garageState') !== null
@@ -23,11 +24,14 @@ export class Garage extends CarGarage {
 
   title: Title;
 
+  pangination: Pangination;
+
   constructor() {
     super();
     this.button = new Button();
     this.input = new Input();
     this.title = new Title();
+    this.pangination = new Pangination();
   }
 
   renderNav(): HTMLElement {
@@ -77,16 +81,6 @@ export class Garage extends CarGarage {
     return carContainer;
   }
 
-  renderPangination(): HTMLElement {
-    const pangination = document.createElement('div');
-    pangination.className = 'pangination';
-    pangination.append(
-      this.button.createButton('Prev', 'button', 'pang-prev'),
-      this.button.createButton('Next', 'button', 'pang-next')
-    );
-    return pangination;
-  }
-
   renderPage(params: TypeForGarageRender): void {
     try {
       const cars = params?.cars || [];
@@ -103,7 +97,7 @@ export class Garage extends CarGarage {
         this.title.createTitle(`Garage (${count})`, 'title', 2),
         this.title.createTitle(`Page #${count}`, 'title', 3),
         this.renderCarContainer(cars),
-        this.renderPangination()
+        this.pangination.createPangination(),
       );
       const container = document.createElement('div');
       container.append(header, main);
