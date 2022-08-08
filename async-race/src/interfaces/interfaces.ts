@@ -25,3 +25,16 @@ export interface ParamsWinner {
   wins: number;
   time: number;
 }
+
+export interface GarageState {
+  inputName: string;
+  inputColor: string;
+  page: number;
+}
+
+export interface GetCarsResponse {
+  cars: Car[];
+  count: string;
+}
+
+export type TypeForGarageRender = GetCarsResponse | void;

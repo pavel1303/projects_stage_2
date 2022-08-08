@@ -1,3 +1,6 @@
-body {
-    color: crimson;
-}
+@import './scss/_base';
+@import './components/title/_title';
+@import './components/car/car__garage/_car-garage';
+@import './components/btn/_button';
+@import './pages/garage/_garage';
+@import './components/input/_input';
