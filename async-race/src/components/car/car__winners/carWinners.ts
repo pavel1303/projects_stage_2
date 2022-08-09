@@ -3,7 +3,7 @@ import { CarWinner, Car } from '../../../interfaces/interfaces';
 export class CarWinners {
   createCarItem(color: string): HTMLElement {
     const carItem = document.createElement('div');
-    carItem.className = 'car-img';
+    carItem.className = 'car-img-winner';
     carItem.innerHTML = `
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -54,7 +54,7 @@ export class CarWinners {
           td.innerHTML = `${numCar}`;
           break;
         case 'Car':
-          td.innerHTML = `${this.createCarItem(car.color)}`;
+          td.append(this.createCarItem(car.color));
           break;
         case 'Name':
           td.innerHTML = `${car.name}`;

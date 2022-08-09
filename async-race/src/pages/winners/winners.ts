@@ -2,7 +2,8 @@ import {
   WinnersState,
   Car,
   CarWinner,
-  WinnersRender
+  TypeForGarageRender,
+  TypeForWinnersRender
 } from '../../interfaces/interfaces';
 import { Pangination } from '../../components/pangination/pangination';
 import { Button } from '../../components/btn/button';
@@ -49,39 +50,42 @@ export class Winners extends CarWinners {
     `;
     carTable.className = 'car-table';
     let currentCar: Car;
-    if (winners) {
+    if (winners.length) {
       winners.forEach((winner, i) => {
-        if (cars) {
-          cars.forEach((car) => {
-            if (winner.id === car.id) {
-              currentCar = car;
-            }
-          });
-        }
-
+        cars.forEach((car) => {
+          if (winner.id === car.id) {
+            currentCar = car;
+          }
+        });
+        
         carTable.append(this.createCar(winner, currentCar, i + 1));
       });
+    } else {
+      carTable.append(document.createElement('tbody'));
     }
 
     return carTable;
   }
 
-  renderPage(params: WinnersRender): void {
+  renderPage(getCarsResponse: TypeForGarageRender, getWinnersCarsResponse: TypeForWinnersRender): void {
     try {
-      const winners = params.winners?.carsWins || [];
-      const cars = params.cars?.cars || [];
-      const count = params.winners?.count || '';
+      const winCars = getWinnersCarsResponse?.winners || [];
+      const cars = getCarsResponse?.cars || [];
+      const countWin = getWinnersCarsResponse?.count || '';
       document.body.innerHTML = '';
+
       const header = document.createElement('header');
       header.append(this.title.createTitle('Async Race', 'title', 1));
       header.append(this.navigation.createNav());
+
       const main = document.createElement('main');
       main.append(
-        this.title.createTitle(`Winners (${count})`, 'title', 2),
+        this.title.createTitle(`Winners (${countWin})`, 'title', 2),
         this.title.createTitle(`Page #${this.state.page}`, 'title', 3),
-        this.renderCarTable(winners, cars),
+        this.renderCarTable(winCars, cars),
         this.pangination.createPangination()
       );
+
       const container = document.createElement('div');
       container.append(header, main);
       document.body.append(container);

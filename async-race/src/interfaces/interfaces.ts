@@ -40,13 +40,14 @@ export interface GetCarsResponse {
   count: string;
 }
 export interface GetWinnersCarsResponse {
-  carsWins: CarWinner[];
+  winners: CarWinner[];
   count: string;
 }
 
 export type TypeForGarageRender = GetCarsResponse | void;
 export type TypeForWinnersRender = GetWinnersCarsResponse | void;
-export interface WinnersRender {
-  cars: TypeForGarageRender;
-  winners: TypeForWinnersRender;
-}
+
+// export interface WinnersRender {
+//   cars: TypeForGarageRender;
+//   winCars: TypeForWinnersRender;
+// }
