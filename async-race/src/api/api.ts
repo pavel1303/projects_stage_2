@@ -1,4 +1,10 @@
-import { Car, ParamsCar, EngineCar, CarWinner, ParamsWinner } from '../interfaces/interfaces';
+import {
+  Car,
+  ParamsCar,
+  EngineCar,
+  CarWinner,
+  ParamsWinner,
+} from '../interfaces/interfaces';
 
 const BASE_URL = 'http://127.0.0.1:3000';
 const GARAGE_LIMIT = 7;
@@ -54,8 +60,11 @@ export const createCar = async (carParams: ParamsCar): Promise<void> => {
 
 export const deleteCar = async (carId: number): Promise<void> => {
   try {
-    await fetch(`$${BASE_URL}/garage/${carId}`, {
-      method: 'DELETE',
+    await fetch(`${BASE_URL}/garage/${carId}`, {
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
   } catch (error) {
     if (error instanceof Error) {
@@ -157,7 +166,9 @@ export const getWinner = async (idCar: number): Promise<CarWinner | object> => {
   }
 };
 
-export const createWinner = async (winnerParams: ParamsWinner): Promise<void> => {
+export const createWinner = async (
+  winnerParams: ParamsWinner
+): Promise<void> => {
   try {
     await fetch(`${BASE_URL}/winners`, {
       method: 'POST',
@@ -175,8 +186,11 @@ export const createWinner = async (winnerParams: ParamsWinner): Promise<void> =>
 
 export const deleteWinner = async (carId: number): Promise<void> => {
   try {
-    await fetch(`$${BASE_URL}/winners/${carId}`, {
-      method: 'DELETE',
+    await fetch(`${BASE_URL}/winners/${carId}`, {
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
   } catch (error) {
     if (error instanceof Error) {

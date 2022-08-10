@@ -85,6 +85,7 @@ export class Garage extends CarGarage {
       const header = document.createElement('header');
       header.append(this.title.createTitle('Async Race', 'title', 1));
       header.append(this.navigation.createNav());
+
       const main = document.createElement('main');
       main.append(this.renderGarageControl());
       main.append(
@@ -93,6 +94,7 @@ export class Garage extends CarGarage {
         this.renderCarContainer(cars),
         this.pangination.createPangination(),
       );
+      
       const container = document.createElement('div');
       container.append(header, main);
       document.body.append(container);

@@ -35,7 +35,7 @@ export class Winners extends CarWinners {
     this.navigation = new Navigation();
   }
 
-  renderCarTable(winners: CarWinner[], cars: Car[]): HTMLElement {
+  renderCarTable(winners: CarWinner[] | [], cars: Car[] | []): HTMLElement {
     const carTable = document.createElement('table');
     carTable.innerHTML = `
         <thead>
@@ -50,8 +50,9 @@ export class Winners extends CarWinners {
     `;
     carTable.className = 'car-table';
     let currentCar: Car;
-    if (winners.length) {
+    if (winners.length !== 0) {
       winners.forEach((winner, i) => {
+        if (cars.length === 0) return;
         cars.forEach((car) => {
           if (winner.id === car.id) {
             currentCar = car;
@@ -71,7 +72,8 @@ export class Winners extends CarWinners {
     try {
       const winCars = getWinnersCarsResponse?.winners || [];
       const cars = getCarsResponse?.cars || [];
-      const countWin = getWinnersCarsResponse?.count || '';
+      const countWin = getWinnersCarsResponse?.count;
+
       document.body.innerHTML = '';
 
       const header = document.createElement('header');
@@ -79,10 +81,11 @@ export class Winners extends CarWinners {
       header.append(this.navigation.createNav());
 
       const main = document.createElement('main');
+      const carTable = this.renderCarTable(winCars, cars) || document.createElement('div');
       main.append(
         this.title.createTitle(`Winners (${countWin})`, 'title', 2),
-        this.title.createTitle(`Page #${this.state.page}`, 'title', 3),
-        this.renderCarTable(winCars, cars),
+        this.title.createTitle(`Page #${this.state.page || '1'}`, 'title', 3),
+        carTable,
         this.pangination.createPangination()
       );
 

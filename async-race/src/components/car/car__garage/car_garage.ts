@@ -79,6 +79,32 @@ export class CarGarage {
     carItem.innerHTML += '<div class="empty"></div>';
     carItem.innerHTML += this.flag;
     carItem.className = 'car-item';
+    carItem.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.className !== 'btn-small') return;
+      switch (target.id) {
+        case 'select-car-btn':
+          this.button.selectBtnHandler(target);
+          break;
+        case 'delete-car-btn':
+          this.button.deleteCarBtn(target);
+      }
+    });
+
+    // carItem.addEventListener('click', this.qwer);
+    // document.body.addEventListener('click', () => );
+
+    // carItem.addEventListener('click', (e) => {
+
+    //   let target = e.target as HTMLElement;
+    //   console.log(target);
+    //   if (target.id === 'select-car-btn') {
+    //     while (target.className !== 'car-item') {
+    //       target = target.parentNode as HTMLElement;
+    //     }
+    //     this.button.selectBtnHandler(target);
+    //   }
+    // });
     return carItem;
   }
 }

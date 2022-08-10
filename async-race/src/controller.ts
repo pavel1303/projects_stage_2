@@ -1,6 +1,7 @@
 import { Garage } from './pages/garage/garage';
 import { getCars, getWinners } from './api/api';
 import { Winners } from './pages/winners/winners';
+import { Button } from './components/btn/button';
 // import { TypeForGarageRender, TypeForWinnersRender } from './interfaces/interfaces';
 
 export const startApp = () => {
