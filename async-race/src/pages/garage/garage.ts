@@ -1,6 +1,6 @@
 import {
+  AppState,
   Car,
-  GarageState,
   TypeForGarageRender,
 } from '../../interfaces/interfaces';
 import { Title } from '../../components/title/title';
@@ -10,14 +10,14 @@ import { CarGarage } from '../../components/car/car__garage/car_garage';
 import { Pangination } from '../../components/pangination/pangination';
 import { Navigation } from '../../components/nav/navigation';
 export class Garage extends CarGarage {
-  state: GarageState =
-    localStorage.getItem('garageState') !== null
-      ? JSON.parse(localStorage.getItem('garageState') as string)
-      : {
-        inputName: '',
-        inputColor: 'ffffff',
-        page: 1,
-      };
+  // state: GarageState =
+  //   localStorage.getItem('garageState') !== null
+  //     ? JSON.parse(localStorage.getItem('garageState') as string)
+  //     : {
+  //       inputName: '',
+  //       inputColor: 'ffffff',
+  //       page: 1,
+  //     };
 
   button: Button;
 
@@ -75,26 +75,27 @@ export class Garage extends CarGarage {
     return carContainer;
   }
 
-  renderPage(params: TypeForGarageRender): void {
+  renderPage(params: TypeForGarageRender, state: AppState): void {
     try {
       const cars = params?.cars || [];
       const count = params?.count;
 
       document.body.innerHTML = '';
 
+      const page = window.location.hash.replace(/[^0-9]/g, '') || '1';
       const header = document.createElement('header');
       header.append(this.title.createTitle('Async Race', 'title', 1));
-      header.append(this.navigation.createNav());
+      header.append(this.navigation.createNav(`${state.pageGarage}`));
 
       const main = document.createElement('main');
       main.append(this.renderGarageControl());
       main.append(
         this.title.createTitle(`Garage (${count})`, 'title', 2),
-        this.title.createTitle(`Page #${this.state.page}`, 'title', 3),
+        this.title.createTitle(`Page #${page}`, 'title', 3),
         this.renderCarContainer(cars),
         this.pangination.createPangination(),
       );
-      
+
       const container = document.createElement('div');
       container.append(header, main);
       document.body.append(container);

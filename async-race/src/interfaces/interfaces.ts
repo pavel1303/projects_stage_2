@@ -44,10 +44,11 @@ export interface GetWinnersCarsResponse {
   count: string;
 }
 
+export interface AppState {
+  sort:  'id' | 'wins' | 'time';
+  sortOrder: 'ASC' | 'DESC';
+  pageGarage: number;
+  pageWinners: number;
+}
 export type TypeForGarageRender = GetCarsResponse | void;
 export type TypeForWinnersRender = GetWinnersCarsResponse | void;
-
-// export interface WinnersRender {
-//   cars: TypeForGarageRender;
-//   winCars: TypeForWinnersRender;
-// }

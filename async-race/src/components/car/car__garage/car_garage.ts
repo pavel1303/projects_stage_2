@@ -90,21 +90,6 @@ export class CarGarage {
           this.button.deleteCarBtn(target);
       }
     });
-
-    // carItem.addEventListener('click', this.qwer);
-    // document.body.addEventListener('click', () => );
-
-    // carItem.addEventListener('click', (e) => {
-
-    //   let target = e.target as HTMLElement;
-    //   console.log(target);
-    //   if (target.id === 'select-car-btn') {
-    //     while (target.className !== 'car-item') {
-    //       target = target.parentNode as HTMLElement;
-    //     }
-    //     this.button.selectBtnHandler(target);
-    //   }
-    // });
     return carItem;
   }
 }

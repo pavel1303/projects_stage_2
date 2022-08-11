@@ -1,5 +1,7 @@
 import './style.scss';
 
-import { startApp } from './controller';
+import { Controller } from './controller';
 
-startApp();
+const controller = new Controller();
+
+controller.startApp();

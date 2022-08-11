@@ -3,7 +3,8 @@ import {
   Car,
   CarWinner,
   TypeForGarageRender,
-  TypeForWinnersRender
+  TypeForWinnersRender,
+  AppState
 } from '../../interfaces/interfaces';
 import { Pangination } from '../../components/pangination/pangination';
 import { Button } from '../../components/btn/button';
@@ -12,12 +13,12 @@ import { Navigation } from '../../components/nav/navigation';
 import { CarWinners } from '../../components/car/car__winners/carWinners';
 
 export class Winners extends CarWinners {
-  state: WinnersState =
-    localStorage.getItem('winnersState') !== null
-      ? JSON.parse(localStorage.getItem('garageState') as string)
-      : {
-        page: 1,
-      };
+  // state: WinnersState =
+  //   localStorage.getItem('winnersState') !== null
+  //     ? JSON.parse(localStorage.getItem('garageState') as string)
+  //     : {
+  //       page: 1,
+  //     };
 
   pangination: Pangination;
 
@@ -68,7 +69,7 @@ export class Winners extends CarWinners {
     return carTable;
   }
 
-  renderPage(getCarsResponse: TypeForGarageRender, getWinnersCarsResponse: TypeForWinnersRender): void {
+  renderPage(getCarsResponse: TypeForGarageRender, getWinnersCarsResponse: TypeForWinnersRender, state: AppState): void {
     try {
       const winCars = getWinnersCarsResponse?.winners || [];
       const cars = getCarsResponse?.cars || [];
@@ -76,15 +77,16 @@ export class Winners extends CarWinners {
 
       document.body.innerHTML = '';
 
+      const page = window.location.hash.replace(/[^0-9]/g, '') || '1';
       const header = document.createElement('header');
       header.append(this.title.createTitle('Async Race', 'title', 1));
-      header.append(this.navigation.createNav());
+      header.append(this.navigation.createNav(`${state.pageWinners}`));
 
       const main = document.createElement('main');
       const carTable = this.renderCarTable(winCars, cars) || document.createElement('div');
       main.append(
         this.title.createTitle(`Winners (${countWin})`, 'title', 2),
-        this.title.createTitle(`Page #${this.state.page || '1'}`, 'title', 3),
+        this.title.createTitle(`Page #${page}`, 'title', 3),
         carTable,
         this.pangination.createPangination()
       );
